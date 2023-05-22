@@ -9,7 +9,7 @@ pipeline {
         }
         stage('run') {
             steps {
-                sh 'docker run -d -p 8545:8545 ganche-image'
+                sh 'docker run -d -p 8545:8545 ganache-image'
             }
         }
     }
