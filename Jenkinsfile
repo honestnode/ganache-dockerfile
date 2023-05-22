@@ -7,10 +7,5 @@ pipeline {
                 sh 'ganache --version'
             }
         }
-        stage('setup') {
-            steps {
-                sh 'nohup ganache -h 0.0.0.0 --fork.url wss://eth-mainnet.g.alchemy.com/v2/uMRugVHYQV8q85FHacBfiUC3JhzdJU0l &'
-            }
-        }
     }
 }
