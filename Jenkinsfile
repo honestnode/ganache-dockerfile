@@ -9,7 +9,7 @@ pipeline {
         }
         stage('setup') {
             steps {
-                sh 'ganache -h 0.0.0.0 --fork.url wss://eth-mainnet.g.alchemy.com/v2/uMRugVHYQV8q85FHacBfiUC3JhzdJU0l'
+                sh 'nohup ganache -h 0.0.0.0 --fork.url wss://eth-mainnet.g.alchemy.com/v2/uMRugVHYQV8q85FHacBfiUC3JhzdJU0l &'
             }
         }
     }
