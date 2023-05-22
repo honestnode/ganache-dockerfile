@@ -1,10 +1,15 @@
 pipeline {
-    agent { dockerfile true }
+    agent any
+
     stages {
-        stage('test') {
+        stage('build') {
             steps {
-                sh 'node --version'
-                sh 'ganache --version'
+                sh 'docker build -t ganache-image .'
+            }
+        }
+        stage('run') {
+            steps {
+                sh 'docker run -d -p 8545:8545 ganche-image'
             }
         }
     }
