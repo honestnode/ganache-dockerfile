@@ -10,7 +10,7 @@ pipeline {
                    	sh 'docker rm ganache-fork'
                    	sh 'docker rmi ganache-image'
 		    } catch(err) {
-		    	ignore
+		        echo err.getMessage()
 		    }
 		}
             }
