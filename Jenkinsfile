@@ -2,6 +2,13 @@ pipeline {
     agent any
 
     stages {
+        stage('clean') {
+            steps {
+                sh 'docker stop ganache-fork'
+		sh 'docker rm ganache-fork'
+		sh 'docker rmi ganache-image'
+            }
+        }
         stage('build') {
             steps {
                 sh 'docker build -t ganache-image .'
