@@ -4,12 +4,14 @@ pipeline {
     stages {
         stage('clean') {
             steps {
-                try {
-		   sh 'docker stop ganache-fork'
-                   sh 'docker rm ganache-fork'
-                   sh 'docker rmi ganache-image'
-		} catch(Exception e) {
-		   ignore
+		script {
+                    try {
+		   	sh 'docker stop ganache-fork'
+                   	sh 'docker rm ganache-fork'
+                   	sh 'docker rmi ganache-image'
+		    } catch(err) {
+		    	ignore
+		    }
 		}
             }
         }
